@@ -1,0 +1,21 @@
+<div>
+  <p-card header="Phone Number" styleClass="ui-card-shadow">
+    <form #f="ngForm" [formGroup]="phonePickerFormGroup" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="ui-g">
+        <div class="ui-g-3">
+          <app-phone-picker
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            name="phoneNumber"
+            formControlName="phoneNumber"></app-phone-picker>
+          <label class="invalid" *ngIf="f.form.controls['phoneNumber'].invalid && f.form.controls['phoneNumber'].touched">
+            Please enter a valid number
+          </label>
+        </div>       
+        <div class="ui-g-1">
+          <p-button icon="pi pi-mobile" [disabled]="phonePickerFormGroup.invalid" label="Call"></p-button>    
+        </div>   
+      </div>
+    </form>
+  </p-card>
+</div>

@@ -1,0 +1,14 @@
+::ng-deep {
+  p-button,
+  .ui-button {
+    width: 100%;
+    height: 48px;
+  }
+}
+
+.invalid {
+  position: absolute;
+  color: #e91224;
+  font-size: 14px;
+  margin-top: 5px;
+}

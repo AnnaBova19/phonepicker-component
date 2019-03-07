@@ -18,7 +18,7 @@ export const httpOptions = {
 })
 export class CountriesService {
 
-  private countries: BehaviorSubject<Country[]> = new BehaviorSubject<Country[]>([]);
+  private dataChange: BehaviorSubject<Country[]> = new BehaviorSubject<Country[]>([]);
 
   constructor(
     private http: HttpClient
@@ -29,6 +29,7 @@ export class CountriesService {
     return this.http.get<Country[]>(url, httpOptions)
     .pipe(
       map(result => {
+        this.dataChange.next(result);
         return result;
       }),
       catchError(this.handleError('getCountries', []))
