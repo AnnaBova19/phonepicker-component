@@ -1,0 +1,27 @@
+<div *ngIf="allCountries" class="ui-inputgroup phone-picker">
+  <p-dropdown 
+    [options]="allCountries" 
+    [(ngModel)]="selectedCountry.value" 
+    filter="true" 
+    class="ui-inputgroup-addon" 
+    (onChange)="onCountrySelect($event, focusable)">
+    <ng-template let-country pTemplate="selectedItem">
+      <span style="vertical-align:middle; margin-left: .5em"> +{{country.value.callingCodes[0]}}</span>
+    </ng-template>
+    <ng-template let-country pTemplate="item">
+        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+          <span class="flag flag-{{ country.value.alpha2Code | lowercase }}" style="width:16px;vertical-align:middle"></span>
+          <div style="font-size:14px;float:right;margin-top:4px">{{country.label}}</div>
+        </div>
+    </ng-template>
+  </p-dropdown>
+  <input type="tel" id="phone" autocomplete="off"
+      class="phone-input"
+      (blur)="onTouched()"
+      (keypress)="onInputKeyPress($event)"
+      [(ngModel)]="phoneNumber"
+      (ngModelChange)="onPhoneNumberChange()"
+      [disabled]="disabled"
+      [placeholder]="selectedCountry.value.placeHolder"
+      #focusable>
+</div>
