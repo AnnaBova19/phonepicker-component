@@ -1,0 +1,37 @@
+.ui-card-body {
+  padding: 1em 1em 2em;
+}
+
+.phone-picker {
+  .ui-dropdown {
+    background-color: #a6a6a6;
+    border: none;
+    min-width: 90px;
+
+    .ui-dropdown-panel {
+      min-width: 300px;
+    }
+
+    .ui-dropdown-trigger {
+      background: #eaeaea;
+    }
+  }
+
+  .ui-inputtext,
+  .ui-dropdown-trigger {
+    background: #eaeaea;
+  }
+}
+
+::-webkit-input-placeholder {
+  opacity: .6;
+}
+::-moz-placeholder {
+  opacity: .6;
+}
+:-ms-input-placeholder {
+  opacity: .6;
+}
+:-moz-placeholder {
+  opacity: .6;
+}
